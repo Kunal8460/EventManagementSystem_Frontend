@@ -1,0 +1,175 @@
+<!-- Images -->
+
+<section class="background-color">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <!-- <div class="carousel-item active z-index-2 d-flex justify-content-center"> -->
+                <!-- <div class=" text-danger z-index-1 position-absolute">
+                <h1> Event Details</h1>
+            </div> -->
+                <img src="../../assets/carouselImg2.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="../../assets/carouselImg1.jpg" class="d-block w-100" alt="...">
+            </div>
+            <!-- <div class="carousel-item">
+            <img src="../../assets/background.png" class="d-block w-100" alt="...">
+        </div> -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+<!-- Events -->
+<section class=" background-color py-5">
+    <h2 class="text-center text-white pb-2"><i class="bi bi-lightning-charge-fill">Top Selling Events</i></h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class=" zoom card my-2" style="width: 23rem;height: max-content;">
+                            <img src="../../assets/background.png" height="300" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <span>12/12/22</span>|
+                                    <span>13/12/22</span>|
+                                    <span>Venue City</span>
+                                </div>
+                                <div class="ml-2 mt-2">
+                                    <h5 class="card-title">Event Name</h5>
+                                </div>
+                                <p class="card-text">Location</p>
+                                <a [routerLink]="['/show-event']" routerLinkActive="router-link-active"
+                                    class="btn btn-success">Show Event</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class=" zoom card my-2" style="width: 23rem;height: max-content;">
+                            <img src="../../assets/background.png" height="300" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <span>12/12/22</span>|
+                                    <span>13/12/22</span>|
+                                    <span>Venue City</span>
+                                </div>
+                                <div class="ml-2 mt-2">
+                                    <h5 class="card-title">Event Name</h5>
+                                </div>
+                                <p class="card-text">Location</p>
+                                <a class="btn btn-success">Show Event</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class=" zoom card my-2" style="width: 23rem;height: max-content;">
+                            <img src="../../assets/background.png" height="300" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <span>12/12/22</span>|
+                                    <span>13/12/22</span>|
+                                    <span>Venue City</span>
+                                </div>
+                                <div class="ml-2 mt-2">
+                                    <h5 class="card-title">Event Name</h5>
+                                </div>
+                                <p class="card-text">Location</p>
+                                <a class="btn btn-success">Show Event</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-5">
+        <a [routerLink]="['/browse-events']" routerLinkActive="router-link-active"
+            class="zoom fs-5 btn btn-danger bi bi-calendar-event">&nbsp;&nbsp;View all Events
+        </a>
+    </div>
+</section>
+
+<!-- Categories -->
+
+<section class="pb-5 background-color">
+    <h2 class="text-center text-white pb-2">Event Categories</h2>
+    <div class="container d-flex justify-content-around">
+        <div class="row my-2">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="m-1 zoom">
+                            <img src="../../assets/carouselImg1.jpg" width="300"
+                                class=" border border-white border-4 rounded-4" alt="...">
+                            <!-- <h2 class="text-white z-index-2 position-absolute">Seminars</h2> -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="m-1 zoom">
+                            <img src="../../assets/carouselImg1.jpg" width="300"
+                                class="border border-white border-4 rounded-4" alt="...">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="m-1 zoom">
+                            <img src="../../assets/carouselImg1.jpg" width="300"
+                                class="border border-white border-4 rounded-4" alt="...">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="m-1 zoom">
+                            <img src="../../assets/carouselImg1.jpg" width="300"
+                                class="border border-white border-4 rounded-4" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Guide -->
+<section class="bg-secondary p-5 bg-opacity-25">
+    <p class="text-center text-muted">How it Works!</p>
+    <h2 class="text-center  pb-2">For Customers</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <h1 class=" bi bi-calendar-event"></h1>
+                        <p class="fs-3">1. Choose Event</p>
+                        <span class="text-muted">Signup, choose your favorite event.</span>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <h1 class=" bi bi-calendar-event"></h1>
+                        <p class="fs-3">2. Get Tickets</p>
+                        <span class="text-muted">Get your tickets from the event page.</span>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <h1 class=" bi bi-calendar-event"></h1>
+                        <p class="fs-3">3. Attend Event</p>
+                        <span class="text-muted">Go attend the event and have fun.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="text-center container ">
+        
+    </div> -->
+</section>

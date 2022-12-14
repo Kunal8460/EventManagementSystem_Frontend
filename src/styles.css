@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+.background-color {
+    background-color: rgb(36, 36, 78);
+}
+
+.zoom {
+    transition: transform .2s;
+    /* Animation */
+}
+
+.zoom:hover {
+    transform: scale(1.1);
+    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
