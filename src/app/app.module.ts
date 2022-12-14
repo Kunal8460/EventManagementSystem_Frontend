@@ -11,6 +11,9 @@ import { BrowseEventsComponent } from './browse-events/browse-events.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { UserServiceService } from './user-service.service';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { CreateEventComponent } from './create-event/create-event.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { UserServiceService } from './user-service.service';
     BookingComponent,
     ShowEventComponent,
     BrowseEventsComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent,
+    FooterComponent,
+    CreateEventComponent
   ],
   imports: [
     BrowserModule,

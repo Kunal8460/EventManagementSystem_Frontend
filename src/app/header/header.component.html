@@ -1,0 +1,40 @@
+<nav class="navbar sticky-top shadow-lg bg-rounded navbar-dark py-3 background-color navbar-expand-lg ">
+    <div class="container">
+        <a class=" fs-2 navbar-brand" [routerLink]="['/dashboard']" routerLinkActive="router-link-active">Event Mime</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="fs-5 nav-link active" aria-current="page" [routerLink]="['/dashboard']"
+                        routerLinkActive="router-link-active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class=" fs-5 nav-link active" [routerLink]="['/booking']"
+                        routerLinkActive="router-link-active">My
+                        Bookings</a>
+                </li>
+                <li class="nav-item">
+                    <a class=" fs-5 nav-link active" [routerLink]="['/browse-events']"
+                        routerLinkActive="router-link-active">Events</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav d-block ms-auto">
+                <li class="nav-item background-color dropdown">
+                    <a class=" fs-5 nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        User name
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" [routerLink]="['']"
+                                routerLinkActive="router-link-active">Logout</a></li>
+                        <!-- <li><a class="dropdown-item" href="#">User name</a></li> -->
+                        <!-- <li><a class="dropdown-item" href="#"></a></li> -->
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

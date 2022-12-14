@@ -12,6 +12,9 @@ export class UserServiceService {
   loginCreds = {};
   data = {};
 
+  getCategories() {
+    return this.http.get(`${this.url}/EventCategory`)
+  }
   sendOtp(email: string) {
     this.loginCreds = {
       toEmail: email,

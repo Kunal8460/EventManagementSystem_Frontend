@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BookingComponent } from './booking/booking.component';
 import { BrowseEventsComponent } from './browse-events/browse-events.component';
+import { CreateEventComponent } from './create-event/create-event.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { ShowEventComponent } from './show-event/show-event.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'show-event/:id', component: ShowEventComponent },
   { path: 'browse-events', component: BrowseEventsComponent },
   { path: 'booking', component: BookingComponent },
+  { path: 'create-event', component: CreateEventComponent }
 ];
 
 @NgModule({

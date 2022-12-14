@@ -12,3 +12,21 @@
     transform: scale(1.1);
     /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
+
+.btn-custom {
+    padding: .6rem .8rem;
+    line-height: 1rem;
+    border: none;
+    border-radius: .375rem;
+    background-color: rgb(47, 47, 111);
+    text-decoration: none;
+    color: white;
+    transition: all .3s ease-in;
+    font-size: large;
+}
+
+.btn-custom:hover {
+    color: white;
+    background-color: rgb(47, 47, 111);
+    scale: 1.1;
+}
