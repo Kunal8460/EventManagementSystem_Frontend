@@ -6,16 +6,24 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserServiceService {
 
-  url: string = "http://localhost:51215/api/";
+  url: string = "http://localhost:51215/api";
 
   constructor(private http: HttpClient) { }
+  loginCreds = {};
+  data = {};
 
-  logincreds = {
-    toEmail: "kunaljadhav8460@gmail.com",
-    subject: "",
-    body: ""
+  sendOtp(email: string) {
+    this.loginCreds = {
+      toEmail: email,
+      subject: "OTP",
+      body: ""
+    }
+    return this.http.post(`${this.url}/Email/Send`, this.loginCreds)
   }
-  login() {
-    return this.http.post(`${this.url} + Email`, this.logincreds)
+  verifyOtp(verifyotp: any) {
+    this.data = {
+      otp: verifyotp
+    }
+    return this.http.post(`${this.url}/Email/GetData`, this.data);
   }
 }

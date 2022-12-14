@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../user-service.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,30 +11,34 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  singupUser: any[] = [];
   isOtp: boolean = false;
-  loginObj: any = {
-    Username: "",
-    Password: ""
-  };
+  loginForm: FormGroup;
+  disableBtn: boolean = false;
+
   constructor(private ss: UserServiceService,
-    private route: ActivatedRoute, private router: Router) { }
+    private route: ActivatedRoute, private router: Router,
+    private fb: FormBuilder) {
+
+    this.loginForm = this.fb.group({
+      ToEmail: '',
+      otp: ''
+    })
+  }
 
   ngOnInit(): void {
   }
-  onSignUp() {
-    // this.singupUser.push(this.signupObj)
-    localStorage.setItem('singupUser', JSON.stringify(this.singupUser));
-  }
   getOtp() {
-    if (this.isOtp == false)
+    if (this.isOtp == false) {
       this.isOtp = true;
+      this.disableBtn = true;
+      this.ss.sendOtp(this.loginForm.value.ToEmail).subscribe();
+    }
   }
   onlogin() {
-    this.ss.login().subscribe(() => {
-
+    this.ss.verifyOtp(this.loginForm.value.otp).subscribe((data: any) => {
+      console.log(data);
+      this.router.navigate(['dashboard']);
     })
-    this.router.navigate(['dashboard']);
   }
 
 }

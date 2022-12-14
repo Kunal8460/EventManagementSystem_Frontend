@@ -9,6 +9,7 @@ import { BookingComponent } from './booking/booking.component';
 import { ShowEventComponent } from './show-event/show-event.component';
 import { BrowseEventsComponent } from './browse-events/browse-events.component';
 import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 import { UserServiceService } from './user-service.service';
 
 @NgModule({
@@ -24,7 +25,8 @@ import { UserServiceService } from './user-service.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
