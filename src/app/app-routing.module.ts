@@ -10,7 +10,7 @@ import { ShowEventComponent } from './show-event/show-event.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'show-event', component: ShowEventComponent },
+  { path: 'show-event/:id', component: ShowEventComponent },
   { path: 'browse-events', component: BrowseEventsComponent },
   { path: 'booking', component: BookingComponent },
 ];

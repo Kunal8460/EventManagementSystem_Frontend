@@ -26,4 +26,8 @@ export class UserServiceService {
     }
     return this.http.post(`${this.url}/Email/GetData`, this.data);
   }
+
+  getAllEvents() {
+    return this.http.get(`${this.url}/EventMaster`)
+  }
 }

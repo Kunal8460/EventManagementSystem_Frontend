@@ -29,9 +29,11 @@ export class LoginComponent implements OnInit {
   }
   getOtp() {
     if (this.isOtp == false) {
-      this.isOtp = true;
-      this.disableBtn = true;
-      this.ss.sendOtp(this.loginForm.value.ToEmail).subscribe();
+
+      this.ss.sendOtp(this.loginForm.value.ToEmail).subscribe(() => {
+        this.isOtp = true;
+        this.disableBtn = true;
+      });
     }
   }
   onlogin() {

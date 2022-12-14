@@ -1,3 +1,4 @@
+<!-- Search section -->
 <section class="mt-5 bg-secondary bg-opacity-25">
     <div class="container py-5">
         <h1>Events</h1>
@@ -28,30 +29,32 @@
         </form>
     </div>
 </section>
+
+<!-- All Events -->
 <section class="background-color pt-5 pb-5">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4" *ngFor="let e of eventList">
                         <div class=" zoom card my-2" style="width: 23rem;height: max-content;">
                             <img src="../../assets/background.png" height="300" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
-                                    <span>12/12/22</span>|
-                                    <span>13/12/22</span>|
-                                    <span>Venue City</span>
+                                    <span>{{e.eventStartDate}}</span>&nbsp;&nbsp;|
+                                    &nbsp;&nbsp;|<span>{{e.eventEndDate}}</span>&nbsp;&nbsp;|
+                                    &nbsp;&nbsp;<span><strong>{{e.eventVenue}}</strong></span>
                                 </div>
                                 <div class="ml-2 mt-2">
-                                    <h5 class="card-title">Event Name</h5>
+                                    <h5 class="card-title">{{e.eventTitle}}</h5>
                                 </div>
-                                <p class="card-text">Location</p>
-                                <a [routerLink]="['/show-event']" routerLinkActive="router-link-active"
+                                <p class="card-text">{{e.city}}, {{e.state}}, {{e.country}}</p>
+                                <a [routerLink]="['/show-event',e.eventId]" routerLinkActive="router-link-active"
                                     class="btn btn-warning">Show Event</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <!-- <div class="col-md-4">
                         <div class=" zoom card my-2" style="width: 23rem;height: max-content;">
                             <img src="../../assets/background.png" height="300" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -145,7 +148,7 @@
                                     Event</a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
