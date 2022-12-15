@@ -56,6 +56,7 @@ export class CreateEventComponent implements OnInit {
     // console.log(typeof (this.createEventForm.value.event_start_time))
     // console.log(date.toLocaleDateString())
     this.event = this.createEventForm.value
+    // this.event.customerEmail = sessionStorage.getItem("user");
     this.service.createEvent(this.event).subscribe((data: any) => {
       console.log(data);
     })

@@ -25,9 +25,12 @@ export class ShowEventComponent implements OnInit {
       this.service.getEvent(id).subscribe((data: any) => {
         this.isData = true
         this.event = data.data
-        // console.log(this.event.data)
+        console.log(this.event)
       })
     })
+  }
+  checkout() {
+    // alert("You will get your tickets via mail as soon as your request is approved! ")
   }
 
 }

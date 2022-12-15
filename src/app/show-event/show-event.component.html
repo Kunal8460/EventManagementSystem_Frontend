@@ -8,10 +8,14 @@
                     </div>
                     <div class="col-md-6">
                         <div class="container mt-4">
-                            <h3>{{event.event_title}}</h3>
-                            <p>
-                                {{event.event_description}}
-                            </p>
+                            <div class="text-start">
+                                <h2 class="mb-5">{{event.event_title}}</h2>
+                                <p>
+                                    {{event.event_description}}
+                                </p>
+                            </div>
+                            <span class="fs-3">Category :</span>
+                            <span class=" fs-3 fw-semibold"> {{event.category.category_name}}</span>
                         </div>
                     </div>
                 </div>
@@ -28,9 +32,9 @@
                         <div class="card rounded-4 text-white my-2" style="width: 28rem;">
                             <div class="card-body  rounded-4 background-color px-4">
                                 <h1 class="bi bi-geo-alt-fill"></h1>
-                                <h4>Where</h4>
-                                <p>{{event.event_venue}}</p>
-                                <p>{{event.city}}, {{event.state}}, {{event.country}}</p>
+                                <h4 class="mb-3">Where</h4>
+                                <p class="fw-semibold">{{event.event_venue}}</p>
+                                <p class="fw-semibold">{{event.city}}, {{event.state}}, {{event.country}}</p>
                             </div>
                         </div>
                     </div>
@@ -38,10 +42,12 @@
                         <div class="card rounded-4 text-white my-2 " style="width: 28rem;">
                             <div class="card-body rounded-4 background-color px-4">
                                 <h1 class="bi bi-stopwatch-fill"></h1>
-                                <h4>When</h4>
-                                <p>{{event.event_start_date}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{event.event_start_time}}
+                                <h4 class="mb-3">When</h4>
+                                <p class="fw-semibold">
+                                    {{event.event_start_date}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{event.event_start_time}}
                                 </p>
-                                <p>{{event.event_end_date}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{event.event_end_time}}
+                                <p class="fw-semibold">
+                                    {{event.event_end_date}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{event.event_end_time}}
                                 </p>
                             </div>
                         </div>
@@ -69,24 +75,25 @@
                 <div class="modal-content">
                     <form action="">
                         <div class="modal-body mx-3 my-2">
-                            <h4 class="text-center">Event Name</h4>
-                            <div class="row">
+                            <h4 class="text-center">{{event.event_title}}</h4>
+                            <div class="row d-flex">
                                 <div class="col-sm-6 mt-2">
                                     <label for="quantity"><strong>Quantity</strong></label>
                                     <select name="quantity" id="quantity" class="mt-2 form-select">
                                         <option value="1">1</option>
-                                        <option value="1">1</option>
-                                        <option value="1">1</option>
-                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
                                     </select>
+                                    <small class="text-danger">Maximum 4 Tickets are available</small>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Close</button>
                             <!-- <input type="submit" value="Checkout" class=" btn btn-success"> -->
-                            <button type="submit"
-                                class="bi bi-bookmark-check-fill btn btn-success">&nbsp;&nbsp;Checkout</button>
+                            <a (click)="checkout()" class="bi bi-bookmark-check-fill btn btn-success"
+                                data-bs-dismiss="modal">&nbsp;&nbsp;Checkout</a>
                         </div>
                     </form>
                 </div>
@@ -94,3 +101,7 @@
         </div>
     </div>
 </section>
+<!-- <div class="alert alert-warning alert-dismissible fade show" role="alert" id="message">
+    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div> -->

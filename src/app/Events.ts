@@ -1,3 +1,5 @@
+import { EventCategory } from "./EventCategory";
+
 export class Events {
     event_id: number = 0;
     event_title: string = '';
@@ -11,4 +13,6 @@ export class Events {
     city: string = '';
     state: string = '';
     country: string = '';
+    customerEmail: string = ''
+    category: EventCategory = new EventCategory()
 }

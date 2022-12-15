@@ -7,6 +7,7 @@ import { CreateEventComponent } from './create-event/create-event.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { MyEventsComponent } from './my-events/my-events.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 import { ShowEventComponent } from './show-event/show-event.component';
 
 const routes: Routes = [
@@ -16,7 +17,9 @@ const routes: Routes = [
   { path: 'browse-events', component: BrowseEventsComponent },
   { path: 'booking', component: BookingComponent },
   { path: 'create-event', component: CreateEventComponent },
-  { path: 'my-events/:id', component: MyEventsComponent }
+  { path: 'my-events/:id', component: MyEventsComponent },
+  { path: 'not-found', component: NotFoundComponent },
+  { path: '**', pathMatch: 'full', component: NotFoundComponent },
 ];
 
 @NgModule({

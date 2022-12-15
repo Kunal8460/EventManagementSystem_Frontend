@@ -15,6 +15,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { MyEventsComponent } from './my-events/my-events.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { MyEventsComponent } from './my-events/my-events.component';
     HeaderComponent,
     FooterComponent,
     CreateEventComponent,
-    MyEventsComponent
+    MyEventsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
