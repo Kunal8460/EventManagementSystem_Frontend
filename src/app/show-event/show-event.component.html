@@ -2,50 +2,15 @@
     <div class="container pt-5">
         <div class="row">
             <div class="col-xs-12">
-                <div class="row">
+                <div class="row" *ngIf="isData">
                     <div class="col-md-6 mt-4">
                         <img src="../../assets/carouselImg1.jpg" alt="Event Image" width="500" class="border rounded-5">
                     </div>
                     <div class="col-md-6">
                         <div class="container mt-4">
-                            <h3>Event Name</h3>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis labore inventore ea,
-                                vero
-                                nobis voluptatibus dignissimos alias ratione pariatur voluptate fugiat ut velit
-                                nihil
-                                sint vitae ipsa eius sit ipsam reprehenderit, et magnam optio consequatur nam!
-                                Voluptates necessitatibus iure impedit ipsa culpa nisi voluptatibus sed cupiditate
-                                doloribus. Expedita blanditiis eveniet, quam cupiditate doloribus obcaecati odit
-                                accusantium recusandae aut deserunt rerum officiis iusto sequi quidem nostrum
-                                labore,
-                                vero nihil nisi, impedit et eos. Illum placeat hic aut dolore debitis nostrum sunt
-                                unde
-                                ea, quisquam consequatur doloremque quibusdam, soluta labore, velit eveniet
-                                voluptatibus
-                                facilis repudiandae quis ipsa at eaque? Dolor ipsam ab est veritatis tenetur ipsa
-                                voluptatum a labore aut, nesciunt totam eveniet perferendis rerum iure porro
-                                reiciendis
-                                nihil iusto qui similique aliquam officiis quasi eligendi. Ab reiciendis nostrum
-                                perspiciatis quidem quae vero explicabo eligendi consectetur dolore consequatur, sed
-                                iusto sequi quaerat deleniti facere voluptatibus ipsa asperiores commodi nam.
-                                Voluptatem
-                                maiores dolor distinctio! Odit, nemo. Tenetur, quia saepe sequi temporibus ut animi
-                                excepturi dignissimos magnam reprehenderit totam commodi, dolorum vitae. Architecto,
-                                sint ea? Veniam delectus veritatis in numquam vero eum aperiam, iure maxime enim
-                                fuga
-                                fugit facere quam incidunt recusandae explicabo reprehenderit dolores dignissimos
-                                error.
-                                Rem optio beatae, at dolore assumenda, maiores nostrum voluptate animi hic ad rerum
-                                repellat magnam corrupti nihil cumque numquam ex. Maiores sunt, commodi amet enim
-                                velit
-                                perferendis ducimus iusto, harum tempora qui quam, veniam obcaecati nihil explicabo
-                                tempore nesciunt. Nihil inventore culpa maiores et blanditiis ipsa veniam dicta qui
-                                eos
-                                nemo ea, aspernatur perferendis eveniet exercitationem quos voluptatem at debitis
-                                quo,
-                                asperiores beatae eum quis dolores. Dolor corporis dolorem aliquam quas at?
-                                Molestias
-                                quae provident, nulla suscipit neque at. Temporibus vero ipsa quia ad
+                            <h3>{{event.event_title}}</h3>
+                            <p>
+                                {{event.event_description}}
                             </p>
                         </div>
                     </div>
@@ -64,18 +29,20 @@
                             <div class="card-body  rounded-4 background-color px-4">
                                 <h1 class="bi bi-geo-alt-fill"></h1>
                                 <h4>Where</h4>
-                                <p>Location</p>
-                                <p> city name</p>
+                                <p>{{event.event_venue}}</p>
+                                <p>{{event.city}}, {{event.state}}, {{event.country}}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="card rounded-4 text-white my-2 " style="width: 28rem;">
-                            <div class="card-body  rounded-4 background-color px-4">
+                            <div class="card-body rounded-4 background-color px-4">
                                 <h1 class="bi bi-stopwatch-fill"></h1>
                                 <h4>When</h4>
-                                <p>Start Date</p>
-                                <p>End Date</p>
+                                <p>{{event.event_start_date}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{event.event_start_time}}
+                                </p>
+                                <p>{{event.event_end_date}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{event.event_end_time}}
+                                </p>
                             </div>
                         </div>
                     </div>

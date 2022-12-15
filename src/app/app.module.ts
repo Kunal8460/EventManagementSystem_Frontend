@@ -14,6 +14,7 @@ import { UserServiceService } from './user-service.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CreateEventComponent } from './create-event/create-event.component';
+import { MyEventsComponent } from './my-events/my-events.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CreateEventComponent } from './create-event/create-event.component';
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    MyEventsComponent
   ],
   imports: [
     BrowserModule,

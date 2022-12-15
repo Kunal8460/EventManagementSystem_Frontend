@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { UserServiceService } from '../user-service.service';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Events } from '../Events';
 
 @Component({
   selector: 'app-show-event',
@@ -7,9 +12,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowEventComponent implements OnInit {
 
-  constructor() { }
+  event: Events = new Events();
+  isData: boolean = false
+  constructor(private activeRoute: ActivatedRoute,
+    private service: UserServiceService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.activeRoute.params.subscribe((param) => {
+      let id = param['id']
+      this.service.getEvent(id).subscribe((data: any) => {
+        this.isData = true
+        this.event = data.data
+        // console.log(this.event.data)
+      })
+    })
   }
 
 }

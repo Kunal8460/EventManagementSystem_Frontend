@@ -4,7 +4,7 @@
         <div class="container p-5">
             <div class="row">
                 <div class="col-xs-12">
-                    <form method="post">
+                    <form method="post" [formGroup]="createEventForm">
                         <div class="row my-2 d-flex justify-content-center">
                             <div class="col-sm-6">
                                 <label for="event_title"><strong>Event Title</strong></label>
@@ -15,11 +15,10 @@
                         <div class="row mb-2 d-flex justify-content-center">
                             <div class="col-sm-6">
                                 <label for="category_id"><strong>Event Category</strong></label>
-                                <select class="form-select my-2" name="category_id" id="category_id">
-                                    <option value="">Select Category</option>
+                                <select class="form-select my-2" formControlName="category_id" id="category_id">
+                                    <!-- <option value="" selected>Select Category</option> -->
                                     <option *ngFor="let cat of categories" value={{cat.categoryId}}>{{cat.categoryName}}
                                     </option>
-                                    <!-- <option value="">Select Category</option> -->
                                 </select>
                             </div>
                         </div>
@@ -87,9 +86,9 @@
                                 <input type="text" formControlName="country" #state id="country" class="form-control" />
                             </div>
                         </div>
-                        <div class="row mx-2 d-flex text-center justify-content-center">
+                        <div class="row p-2 d-flex text-center justify-content-center">
                             <div class="col-sm-12">
-                                <input type="submit" class="btn-custom" value="Create">
+                                <input type="submit" (click)="onSubmit()" class=" px-3 btn-custom" value="Create">
                             </div>
                         </div>
                     </form>

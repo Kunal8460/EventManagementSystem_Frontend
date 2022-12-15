@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UserServiceService } from '../user-service.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
   isOtp: boolean = false;
@@ -25,7 +26,9 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  isLoggedIn: boolean = false;
   ngOnInit(): void {
+
   }
   getOtp() {
     if (this.isOtp == false) {
@@ -39,7 +42,12 @@ export class LoginComponent implements OnInit {
   onlogin() {
     this.ss.verifyOtp(this.loginForm.value.otp).subscribe((data: any) => {
       console.log(data);
-      this.router.navigate(['dashboard']);
+      if (data == true) {
+        this.isLoggedIn = true;
+        sessionStorage.setItem("user", this.loginForm.value.ToEmail)
+        sessionStorage.setItem("isLoggedIn", "true")
+        this.router.navigate(['dashboard']);
+      }
     })
   }
 

@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { Events } from './Events';
 @Injectable({
   providedIn: 'root'
 })
 export class UserServiceService {
 
   url: string = "http://localhost:51215/api";
-
+  event: Events[] = []
   constructor(private http: HttpClient) { }
   loginCreds = {};
   data = {};
@@ -33,4 +33,15 @@ export class UserServiceService {
   getAllEvents() {
     return this.http.get(`${this.url}/EventMaster`)
   }
+
+  createEvent(event: Events) {
+    // console.log(event);
+    return this.http.post<Events>(`${this.url}/EventMaster`, event)
+  }
+
+  getEvent(id: number) {
+    return this.http.get(`${this.url}/EventMaster/${id}`)
+  }
+
+
 }
