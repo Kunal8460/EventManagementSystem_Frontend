@@ -27,13 +27,12 @@
             </ul>
             <ul class="navbar-nav d-block ms-auto">
                 <li class="nav-item background-color dropdown">
-                    <a class=" fs-5 nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        User name
+                    <a *ngIf="isLoggedIn" class=" fs-5 nav-link active dropdown-toggle" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        {{username}}
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" (click)="logout()" [routerLink]="['']"
-                                routerLinkActive="router-link-active">Logout</a></li>
+                        <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
                         <!-- <li><a class="dropdown-item" href="#">User name</a></li> -->
                         <!-- <li><a class="dropdown-item" href="#"></a></li> -->
                     </ul>

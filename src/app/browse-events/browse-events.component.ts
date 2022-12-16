@@ -12,12 +12,20 @@ export class BrowseEventsComponent implements OnInit {
 
   eventList: any[] = [];
   categories: any[] = [];
+  isLoggedIn: boolean = false
   constructor(private service: UserServiceService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+
+    if (localStorage.getItem("isLoggedIn") == "true") {
+      this.isLoggedIn = true
+      console.log(localStorage.getItem("isLoggedIn"))
+    } else {
+      this.router.navigate([''])
+    }
 
     this.service.getCategories().subscribe((data: any) => {
       this.categories = data.data

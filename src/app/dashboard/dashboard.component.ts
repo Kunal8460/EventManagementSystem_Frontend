@@ -18,12 +18,11 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // if (sessionStorage.getItem("isLoggedIn") == "true") {
-    //   this.isLoggedIn = true
-    //   console.log(sessionStorage.getItem("isLoggedIn"))
-    // } else {
-    //   this.router.navigate([''])
-    // }
+    if (localStorage.getItem("isLoggedIn") == "true") {
+      this.isLoggedIn = true
+    } else {
+      this.router.navigate([''])
+    }
 
     this.service.getAllEvents().subscribe((data: any) => {
       let arr = data.data

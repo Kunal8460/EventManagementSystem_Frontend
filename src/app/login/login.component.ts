@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   isOtp: boolean = false;
   loginForm: FormGroup;
   disableBtn: boolean = false;
+  isVerified: boolean = false
 
   constructor(private ss: UserServiceService,
     private route: ActivatedRoute, private router: Router,
@@ -29,6 +30,13 @@ export class LoginComponent implements OnInit {
   isLoggedIn: boolean = false;
   ngOnInit(): void {
 
+    if (localStorage.getItem("isLoggedIn") == "true") {
+      this.isLoggedIn = true
+      console.log(localStorage.getItem("isLoggedIn"))
+      this.router.navigate(['dashboard'])
+    } else {
+      this.router.navigate([''])
+    }
   }
   getOtp() {
     if (this.isOtp == false) {
@@ -43,10 +51,13 @@ export class LoginComponent implements OnInit {
     this.ss.verifyOtp(this.loginForm.value.otp).subscribe((data: any) => {
       console.log(data);
       if (data == true) {
+        this.isVerified = true
         this.isLoggedIn = true;
-        sessionStorage.setItem("user", this.loginForm.value.ToEmail)
-        sessionStorage.setItem("isLoggedIn", "true")
-        this.router.navigate(['dashboard']);
+        localStorage.setItem("user", this.loginForm.value.ToEmail)
+        localStorage.setItem("isLoggedIn", "true")
+        setTimeout(() => {
+          this.router.navigate(['dashboard']);
+        }, 2000)
       }
     })
   }

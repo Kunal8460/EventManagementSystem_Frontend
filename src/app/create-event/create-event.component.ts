@@ -15,6 +15,7 @@ export class CreateEventComponent implements OnInit {
   createEventForm: FormGroup;
   event: Events = new Events()
   category_id: number = 0;
+  isLoggedIn: boolean = false
 
   constructor(private service: UserServiceService,
     private router: Router,
@@ -38,6 +39,15 @@ export class CreateEventComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+
+    if (localStorage.getItem("isLoggedIn") == "true") {
+      this.isLoggedIn = true
+      console.log(localStorage.getItem("isLoggedIn"))
+    } else {
+      this.router.navigate([''])
+    }
+
     this.service.getCategories().subscribe((data: any) => {
       this.categories = data.data
     })
@@ -56,7 +66,7 @@ export class CreateEventComponent implements OnInit {
     // console.log(typeof (this.createEventForm.value.event_start_time))
     // console.log(date.toLocaleDateString())
     this.event = this.createEventForm.value
-    // this.event.customerEmail = sessionStorage.getItem("user");
+    // this.event.customerEmail = localStorage.getItem("user");
     this.service.createEvent(this.event).subscribe((data: any) => {
       console.log(data);
     })

@@ -14,12 +14,23 @@ export class ShowEventComponent implements OnInit {
 
   event: Events = new Events();
   isData: boolean = false
+  isLoggedIn: boolean = false
+
   constructor(private activeRoute: ActivatedRoute,
     private service: UserServiceService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+
+
+    if (localStorage.getItem("isLoggedIn") == "true") {
+      this.isLoggedIn = true
+      console.log(localStorage.getItem("isLoggedIn"))
+    } else {
+      this.router.navigate([''])
+    }
+
     this.activeRoute.params.subscribe((param) => {
       let id = param['id']
       this.service.getEvent(id).subscribe((data: any) => {
