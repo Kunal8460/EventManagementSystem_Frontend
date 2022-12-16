@@ -7,25 +7,27 @@
                     <form method="post" [formGroup]="createEventForm">
                         <div class="row my-2 d-flex justify-content-center">
                             <div class="col-sm-6">
-                                <label for="event_title"><strong>Event Title</strong></label>
-                                <input type="text" formControlName="event_title" #event_title id="eventTitle"
+                                <label for="eventTitle"><strong>Event Title</strong></label>
+                                <input type="text" formControlName="eventTitle" #eventTitle id="eventTitle"
                                     class="form-control">
                             </div>
                         </div>
                         <div class="row mb-2 d-flex justify-content-center">
                             <div class="col-sm-6">
-                                <label for="category_id"><strong>Event Category</strong></label>
-                                <select class="form-select my-2" formControlName="category_id" id="category_id">
-                                    <!-- <option value="" selected>Select Category</option> -->
+                                <label for="categoryId"><strong>Category</strong></label>
+                                <select class="form-select my-2" name="categoryId" formControlName="categoryId"
+                                    #categoryId id="categoryId">
+                                    <option value="">Select Category</option>
                                     <option *ngFor="let cat of categories" value={{cat.categoryId}}>{{cat.categoryName}}
                                     </option>
+                                    <!-- <option value="">Select Category</option> -->
                                 </select>
                             </div>
                         </div>
                         <div class="row my-2 d-flex justify-content-center">
                             <div class="col-sm-6">
-                                <label for="event_description"><strong>Event Description</strong></label>
-                                <textarea formControlName="event_description" #event_description id="event_description"
+                                <label for="eventDescription"><strong>Event Description</strong></label>
+                                <textarea formControlName="eventDescription" #eventDescription id="eventDescription"
                                     class="form-control"></textarea>
                             </div>
                         </div>
@@ -33,14 +35,14 @@
                             <div class="col-sm-12">
                                 <div class="row d-flex justify-content-center">
                                     <div class="col-sm-3">
-                                        <label for="event_start_date"><strong>Event Start Date</strong></label>
-                                        <input type="date" formControlName="event_start_date" #event_start_date
-                                            id="event_start_date" class="form-control">
+                                        <label for="eventStartDate"><strong>Event Start Date</strong></label>
+                                        <input type="date" formControlName="eventStartDate" #eventStartDate
+                                            id="eventStartDate" class="form-control">
                                     </div>
                                     <div class="col-sm-3">
-                                        <label for="event_start_time"><strong>Event Start Time</strong></label>
-                                        <input type="time" formControlName="event_start_time" #event_start_date
-                                            id="event_start_time" class="form-control">
+                                        <label for="eventStartTime"><strong>Event Start Time</strong></label>
+                                        <input type="time" formControlName="eventStartTime" #eventStartTime
+                                            id="eventStartTime" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -49,22 +51,22 @@
                             <div class="col-sm-12">
                                 <div class="row d-flex justify-content-center">
                                     <div class="col-sm-3">
-                                        <label for="event_end_date"><strong>Event End Date</strong></label>
-                                        <input type="date" formControlName="event_end_date" #event_end_date
-                                            id="event_end_date" class="form-control">
+                                        <label for="eventEndDate"><strong>Event End Date</strong></label>
+                                        <input type="date" formControlName="eventEndDate" #eventEndDate
+                                            id="eventEndDate" class="form-control">
                                     </div>
                                     <div class="col-sm-3">
-                                        <label for="event_end_time"><strong>Event End Time</strong></label>
-                                        <input type="time" formControlName="event_end_time" #event_end_date
-                                            id="event_end_time" class="form-control">
+                                        <label for="eventEndTime"><strong>Event End Time</strong></label>
+                                        <input type="time" formControlName="eventEndTime" #eventEndTime
+                                            id="eventEndTime" class="form-control">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row mb-2 d-flex justify-content-center">
                             <div class="col-sm-6">
-                                <label for="event_venue"><strong>Venue Address</strong></label>
-                                <textarea formControlName="event_venue" #event_venue id="event_venue"
+                                <label for="eventVenue"><strong>Venue Address</strong></label>
+                                <textarea formControlName="eventVenue" #eventVenue id="eventVenue"
                                     class="form-control"></textarea>
                             </div>
                         </div>

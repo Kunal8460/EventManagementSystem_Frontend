@@ -46,14 +46,14 @@
                             <img src="../../assets/background.png" height="300" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between">
-                                    <span>{{e.event_start_date}}</span>&nbsp;|&nbsp;&nbsp;<span>{{e.event_end_date}}</span>
-                                    &nbsp;&nbsp;|&nbsp;&nbsp;<span class="fw-semibold">{{e.event_venue}}</span>
+                                    <span>{{e.eventStartDate}}</span>&nbsp;|&nbsp;&nbsp;<span>{{e.eventEndDate}}</span>
+                                    &nbsp;&nbsp;|&nbsp;&nbsp;<span class="fw-semibold">{{e.eventVenue}}</span>
                                 </div>
                                 <div class="ml-2 mt-2">
-                                    <h5>{{e.event_title}}</h5>
+                                    <h5>{{e.eventTitle}}</h5>
                                 </div>
                                 <p class="card-text">{{e.city}}, {{e.state}}, {{e.country}}</p>
-                                <a [routerLink]="['/show-event',e.event_id]" routerLinkActive="router-link-active"
+                                <a [routerLink]="['/show-event',e.eventId]" routerLinkActive="router-link-active"
                                     class="btn-custom">Show Event</a>
                             </div>
                         </div>

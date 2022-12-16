@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class MyEventsComponent implements OnInit {
   isLoggedIn: boolean = false
+  username: string = ''
   constructor(
     private router: Router
   ) { }
@@ -16,7 +17,7 @@ export class MyEventsComponent implements OnInit {
 
     if (localStorage.getItem("isLoggedIn") == "true") {
       this.isLoggedIn = true
-      console.log(localStorage.getItem("isLoggedIn"))
+      this.username = localStorage.getItem('user') || ''
     } else {
       this.router.navigate([''])
     }

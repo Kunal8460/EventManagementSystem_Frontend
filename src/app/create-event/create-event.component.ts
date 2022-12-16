@@ -14,7 +14,7 @@ export class CreateEventComponent implements OnInit {
   categories: any[] = [];
   createEventForm: FormGroup;
   event: Events = new Events()
-  category_id: number = 0;
+  // categoryId: number = 0;
   isLoggedIn: boolean = false
 
   constructor(private service: UserServiceService,
@@ -23,14 +23,14 @@ export class CreateEventComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.createEventForm = this.fb.group({
-      event_title: this.event.event_title,
-      category_id: this.event.category_id,
-      event_description: this.event.event_description,
-      event_start_date: this.event.event_start_date,
-      event_start_time: this.event.event_start_time,
-      event_end_date: this.event.event_end_date,
-      event_end_time: this.event.event_end_time,
-      event_venue: this.event.event_venue,
+      eventTitle: this.event.eventTitle,
+      categoryId: this.event.categoryId,
+      eventDescription: this.event.eventDescription,
+      eventStartDate: this.event.eventStartDate,
+      eventStartTime: this.event.eventStartTime,
+      eventEndDate: this.event.eventEndDate,
+      eventEndTime: this.event.eventEndTime,
+      eventVenue: this.event.eventVenue,
       city: this.event.city,
       state: this.event.state,
       country: this.event.country
@@ -55,20 +55,21 @@ export class CreateEventComponent implements OnInit {
 
   onSubmit() {
     console.log(this.createEventForm.value)
-    this.createEventForm.value.category_id = parseInt(this.createEventForm.value.category_id)
-    console.log(this.createEventForm.value.category_id);
+    this.createEventForm.value.categoryId = parseInt(this.createEventForm.value.categoryId)
+    console.log(this.createEventForm.value.categoryId);
 
-    let estartdate = new Date(this.createEventForm.value.event_start_date).toLocaleDateString()
-    this.createEventForm.value.event_start_date = estartdate
-    let esenddate = new Date(this.createEventForm.value.event_end_date).toLocaleDateString()
-    this.createEventForm.value.event_end_date = esenddate
+    let estartdate = new Date(this.createEventForm.value.eventStartDate).toLocaleDateString()
+    this.createEventForm.value.eventStartDate = estartdate
+    let eenddate = new Date(this.createEventForm.value.eventEndDate).toLocaleDateString()
+    this.createEventForm.value.eventEndDate = eenddate
 
     // console.log(typeof (this.createEventForm.value.event_start_time))
     // console.log(date.toLocaleDateString())
     this.event = this.createEventForm.value
-    // this.event.customerEmail = localStorage.getItem("user");
+    this.event.customerEmail = localStorage.getItem("user") || '';
     this.service.createEvent(this.event).subscribe((data: any) => {
       console.log(data);
+      this.router.navigate(['browse-events'])
     })
 
 

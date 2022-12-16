@@ -9,13 +9,13 @@
                     <div class="col-md-6">
                         <div class="container mt-4">
                             <div class="text-start">
-                                <h2 class="mb-5">{{event.event_title}}</h2>
+                                <h2 class="mb-5">{{event.eventTitle}}</h2>
                                 <p>
-                                    {{event.event_description}}
+                                    {{event.eventDescription}}
                                 </p>
                             </div>
                             <span class="fs-3">Category :</span>
-                            <span class=" fs-3 fw-semibold"> {{event.category.category_name}}</span>
+                            <span class=" fs-3 fw-semibold"> {{event.category.categoryName}}</span>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                             <div class="card-body  rounded-4 background-color px-4">
                                 <h1 class="bi bi-geo-alt-fill"></h1>
                                 <h4 class="mb-3">Where</h4>
-                                <p class="fw-semibold">{{event.event_venue}}</p>
+                                <p class="fw-semibold">{{event.eventVenue}}</p>
                                 <p class="fw-semibold">{{event.city}}, {{event.state}}, {{event.country}}</p>
                             </div>
                         </div>
@@ -44,10 +44,10 @@
                                 <h1 class="bi bi-stopwatch-fill"></h1>
                                 <h4 class="mb-3">When</h4>
                                 <p class="fw-semibold">
-                                    {{event.event_start_date}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{event.event_start_time}}
+                                    {{event.eventStartDate}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{event.eventStartTime}}
                                 </p>
                                 <p class="fw-semibold">
-                                    {{event.event_end_date}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{event.event_end_time}}
+                                    {{event.eventEndDate}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{event.eventEndTime}}
                                 </p>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                 <div class="modal-content">
                     <form action="">
                         <div class="modal-body mx-3 my-2">
-                            <h4 class="text-center">{{event.event_title}}</h4>
+                            <h4 class="text-center">{{event.eventTitle}}</h4>
                             <div class="row d-flex">
                                 <div class="col-sm-6 mt-2">
                                     <label for="quantity"><strong>Quantity</strong></label>
