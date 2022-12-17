@@ -23,9 +23,16 @@ export class ShowEventComponent implements OnInit {
 
   ngOnInit(): void {
 
-
     if (localStorage.getItem("isLoggedIn") == "true") {
       this.isLoggedIn = true
+      this.activeRoute.params.subscribe((param) => {
+        let id = param['id']
+        this.service.getEvent(id).subscribe((data: any) => {
+          this.isData = true
+          this.event = data.data
+          console.log(this.event)
+        })
+      })
       console.log(localStorage.getItem("isLoggedIn"))
     } else {
       this.router.navigate([''])

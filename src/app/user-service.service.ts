@@ -43,5 +43,19 @@ export class UserServiceService {
     return this.http.get(`${this.url}/EventMaster/${id}`)
   }
 
+  getMyEvents(email: string) {
+    console.log(email);
+
+    return this.http.get(`${this.url}/EventMaster/MyEvents/${email}`)
+  }
+
+  updateEvent(id: any, event: Events) {
+    return this.http.put(`${this.url}/EventMaster/${id}`, event)
+  }
+
+  deleteEvent(id: any) {
+    return this.http.delete(`${this.url}/EventMaster/${id}`)
+  }
+
 
 }

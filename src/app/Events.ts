@@ -5,7 +5,7 @@ export class Events {
     eventTitle: string = '';
     categoryId: number = 0;
     eventDescription: string = '';
-    eventStartDate: string = '';
+    eventStartDate: Date = new Date();
     eventStartTime: string = '';
     eventEndDate: string = '';
     eventEndTime: string = '';

@@ -1,28 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { Events } from '../Events';
 import { UserServiceService } from '../user-service.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Events } from '../Events';
 @Component({
-  selector: 'app-create-event',
-  templateUrl: './create-event.component.html',
-  styleUrls: ['./create-event.component.css']
+  selector: 'app-edit-event',
+  templateUrl: './edit-event.component.html',
+  styleUrls: ['./edit-event.component.css']
 })
-export class CreateEventComponent implements OnInit {
-
+export class EditEventComponent implements OnInit {
   categories: any[] = [];
   createEventForm: FormGroup;
   event: Events = new Events()
-  // categoryId: number = 0;
   isLoggedIn: boolean = false
-
+  username: string = ''
   constructor(private service: UserServiceService,
     private router: Router,
-    private route: ActivatedRoute,
+    private activeRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {
     this.createEventForm = this.fb.group({
+      eventId: this.event.eventId,
       eventTitle: this.event.eventTitle,
       categoryId: this.event.categoryId,
       eventDescription: this.event.eventDescription,
@@ -38,29 +37,36 @@ export class CreateEventComponent implements OnInit {
     })
   }
 
+
   ngOnInit(): void {
-
-
     if (localStorage.getItem("isLoggedIn") == "true") {
       this.isLoggedIn = true
+
+      this.username = localStorage.getItem('user') || ''
+      this.activeRoute.params.subscribe((param) => {
+        let id = param['id']
+        this.service.getEvent(id).subscribe((data: any) => {
+          this.event = data.data
+        })
+
+      })
+      this.service.getCategories().subscribe((data: any) => {
+        this.categories = data.data
+      })
       console.log(localStorage.getItem("isLoggedIn"))
     } else {
       this.router.navigate([''])
     }
-
-    this.service.getCategories().subscribe((data: any) => {
-      this.categories = data.data
-    })
   }
 
-  onSubmit() {
-    console.log(this.createEventForm.value)
+  onUpdate() {
     this.createEventForm.value.categoryId = parseInt(this.createEventForm.value.categoryId)
     this.event = this.createEventForm.value
-    this.event.customerEmail = localStorage.getItem("user") || '';
+    this.event.customerEmail = this.username
+    console.log(this.event);
 
-    this.service.createEvent(this.event).subscribe((data: any) => {
-      this.router.navigate(['browse-events'])
+    this.service.updateEvent(this.event.eventId, this.event).subscribe((data: any) => {
+      this.router.navigate([`my-events/${this.username}`])
     })
   }
 

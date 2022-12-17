@@ -13,6 +13,7 @@ export class BrowseEventsComponent implements OnInit {
   eventList: any[] = [];
   categories: any[] = [];
   isLoggedIn: boolean = false
+  username: string = ''
   constructor(private service: UserServiceService,
     private router: Router,
     private route: ActivatedRoute
@@ -22,6 +23,7 @@ export class BrowseEventsComponent implements OnInit {
 
     if (localStorage.getItem("isLoggedIn") == "true") {
       this.isLoggedIn = true
+      this.username = localStorage.getItem("user") || ''
       console.log(localStorage.getItem("isLoggedIn"))
     } else {
       this.router.navigate([''])

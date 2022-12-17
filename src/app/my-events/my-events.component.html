@@ -1,8 +1,57 @@
-<div class="container-fluid bg-secondary bg-opacity-25">
-
-    <div class="container p-5">
-
-
-
+<div class="container-fluid py-5  bg-opacity-25">
+    <div class="container py-5">
+        <h2 class="pb-5">My Events</h2>
+        <table class="table table-stripped fs-5">
+            <thead>
+                <tr>
+                    <th scope="col">Event Name</th>
+                    <th scope="col">Event Venue</th>
+                    <th scope="col">Event Start Date</th>
+                    <th scope="col">Event Start Time</th>
+                    <th scope="col">Event Location</th>
+                    <th scope="col">Show</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let e of events">
+                    <td>{{e.eventTitle}}</td>
+                    <td>{{e.eventVenue}}</td>
+                    <td>{{e.eventStartDate}}</td>
+                    <td>{{e.eventStartTime}}</td>
+                    <td>{{e.city}}</td>
+                    <td class="zoom"><a [routerLink]="['/show-event',e.eventId]" routerLinkActive="router-link-active"
+                            class=" btn-custom "><i class="bi bi-eye-fill"></i></a>
+                    </td>
+                    <td class="zoom"><a [routerLink]="['/edit-event',e.eventId]" routerLinkActive="router-link-active"
+                            class=" btn-custom"><i class="bi bi-pencil-square"></i></a>
+                    </td>
+                    <td class="zoom">
+                        <a (click)="onDel(e.eventId)" style="cursor: pointer;" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" class=" btn-custom"><i class="bi bi-trash3-fill"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
+<section>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body mx-3 my-2">
+                        <h1 class="text-center bi bi-exclamation-triangle-fill"></h1>
+                        <p class="fw-semibold fs-4">Are your sure you want to delete this Event?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Cancel</button>
+                        <a class="bi bi-trash-fill btn btn-danger" (click)="deleteEvent()"
+                            data-bs-dismiss="modal">&nbsp;&nbsp;Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
