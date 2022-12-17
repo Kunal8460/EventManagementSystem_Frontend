@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'browse-events', component: BrowseEventsComponent },
   { path: 'booking', component: BookingComponent },
   { path: 'create-event', component: CreateEventComponent },
-  { path: 'my-events/:username', component: MyEventsComponent },
+  { path: 'my-events', component: MyEventsComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: 'edit-event/:id', component: EditEventComponent },
   { path: '**', pathMatch: 'full', component: NotFoundComponent },

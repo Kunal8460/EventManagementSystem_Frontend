@@ -1,32 +1,31 @@
-<div class="container py-5">
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container-fluid py-5 bg-secondary bg-opacity-10">
+    <div class="container py-5">
+        <h2 class="pb-5">My Bookings</h2>
+        <table class="table table-stripped fs-5">
+            <thead>
+                <tr>
+                    <th scope="col">Event Name</th>
+                    <th scope="col">Event Venue</th>
+                    <th scope="col">Event Location</th>
+                    <th scope="col">Event Start Date</th>
+                    <th scope="col">Event Start Time</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Status</th>
+                    <!-- <th scope="col">Delete</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let b of bookings">
+                    <td scope="col">{{b.event.eventTitle}}</td>
+                    <td scope="col">{{b.event.eventVenue}}</td>
+                    <td scope="col">{{b.event.city}}, {{b.event.state}}, {{b.event.country}}</td>
+                    <td scope="col">{{b.event.eventStartDate}}</td>
+                    <td scope="col">{{b.event.eventStartTime}}</td>
+                    <td scope="col">{{b.quantity}}</td>
+                    <td scope="col">{{b.status}}</td>
+                    <!-- <td scope="col"><a class="btn-custom">Cancel</a></td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

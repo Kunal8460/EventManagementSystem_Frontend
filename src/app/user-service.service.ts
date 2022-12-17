@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Events } from './Events';
+import { Booking } from './Booking';
 @Injectable({
   providedIn: 'root'
 })
@@ -35,7 +36,6 @@ export class UserServiceService {
   }
 
   createEvent(event: Events) {
-    // console.log(event);
     return this.http.post<Events>(`${this.url}/EventMaster`, event)
   }
 
@@ -44,9 +44,7 @@ export class UserServiceService {
   }
 
   getMyEvents(email: string) {
-    console.log(email);
-
-    return this.http.get(`${this.url}/EventMaster/MyEvents/${email}`)
+    return this.http.get(`${this.url}/EventMaster/MyEvents?email=${email}`)
   }
 
   updateEvent(id: any, event: Events) {
@@ -57,5 +55,12 @@ export class UserServiceService {
     return this.http.delete(`${this.url}/EventMaster/${id}`)
   }
 
+  requestTicket(booking: Booking) {
+    return this.http.post(`${this.url}/BookingMaster`, booking)
+  }
+
+  getMyBookings(email: string) {
+    return this.http.get(`${this.url}/BookingMaster?email=${email}`)
+  }
 
 }

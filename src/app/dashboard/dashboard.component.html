@@ -1,21 +1,14 @@
 <!-- Images -->
 
-<section class="background-color">
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+<section class="bg-dark">
+    <!-- <div id="carouselExampleControls" class=" carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active opacity-75">
-                <!-- <div class="carousel-item active z-index-2 d-flex justify-content-center"> -->
-                <!-- <div class=" text-danger z-index-1 position-absolute">
-                <h1> Event Details</h1>
-            </div> -->
-                <img src="../../assets/carouselImg1.jpg" class="d-block w-100" alt="...">
+                <img src="../../assets/carouselImg1.jpg" class="opacity-75 d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="../../assets/carouselImg2.jpg" class="d-block w-100" alt="...">
+                <img src="../../assets/carouselImg2.jpg" class=" opacity-75 d-block w-100" alt="...">
             </div>
-            <!-- <div class="carousel-item">
-            <img src="../../assets/background.png" class="d-block w-100" alt="...">
-        </div> -->
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
             data-bs-slide="prev">
@@ -27,7 +20,9 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-    </div>
+    </div> -->
+
+    <img src="../../assets/Dashboard.webp" class="opacity-50" alt="">
 </section>
 
 <!-- Events -->
@@ -38,7 +33,7 @@
             <div class="col-xs-12">
                 <div class="row">
                     <div class="col-md-4" *ngFor="let e of events">
-                        <div class=" zoom fw-semibold card my-2" [routerLink]="['/show-event',e.eventId]"
+                        <div class="fw-semibold card my-2 pb-2" [routerLink]="['/show-event',e.eventId]"
                             routerLinkActive="router-link-active" style="width: 23rem;height: max-content;">
                             <img src="../../assets/background.png" height="300" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -51,7 +46,7 @@
                                 </div>
                                 <p class="card-text">{{e.city}}, {{e.state}}, {{e.country}}</p>
                                 <a [routerLink]="['/show-event',e.eventId]" routerLinkActive="router-link-active"
-                                    class="btn-custom">Show
+                                    class="btn-custom-outline">Show
                                     Event</a>
                             </div>
                         </div>
@@ -60,9 +55,9 @@
             </div>
         </div>
     </div>
-    <div class="text-center mt-5">
+    <div class="text-center mt-5 zoom ">
         <a [routerLink]="['/browse-events']" routerLinkActive="router-link-active"
-            class="zoom fs-5 btn btn-danger bi bi-calendar-event">&nbsp;&nbsp;View all Events
+            class="fs-5 btn-custom bi bi-calendar-event">&nbsp;&nbsp;View all Events
         </a>
     </div>
 </section>

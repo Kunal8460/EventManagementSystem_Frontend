@@ -1,107 +1,111 @@
-<section class="bg-secondary bg-opacity-25">
-    <div class="container pt-5">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="row" *ngIf="isData">
-                    <div class="col-md-6 mt-4">
-                        <img src="../../assets/carouselImg1.jpg" alt="Event Image" width="500" class="border rounded-5">
-                    </div>
-                    <div class="col-md-6">
-                        <div class="container mt-4">
-                            <div class="text-start">
-                                <h2 class="mb-5">{{event.eventTitle}}</h2>
-                                <p>
-                                    {{event.eventDescription}}
-                                </p>
-                            </div>
-                            <span class="fs-3">Category :</span>
-                            <span class=" fs-3 fw-semibold"> {{event.category.categoryName}}</span>
+<div class="bg-secondary bg-opacity-25">
+    <section class="">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row" *ngIf="isData">
+                        <div class="col-md-6 mt-4">
+                            <img src="../../assets/carouselImg1.jpg" alt="Event Image" width="500"
+                                class="border rounded-5">
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="bg-secondary bg-opacity-25 py-5">
-    <div class="container d-flex justify-content-center">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card rounded-4 text-white my-2" style="width: 28rem;">
-                            <div class="card-body  rounded-4 background-color px-4">
-                                <h1 class="bi bi-geo-alt-fill"></h1>
-                                <h4 class="mb-3">Where</h4>
-                                <p class="fw-semibold">{{event.eventVenue}}</p>
-                                <p class="fw-semibold">{{event.city}}, {{event.state}}, {{event.country}}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card rounded-4 text-white my-2 " style="width: 28rem;">
-                            <div class="card-body rounded-4 background-color px-4">
-                                <h1 class="bi bi-stopwatch-fill"></h1>
-                                <h4 class="mb-3">When</h4>
-                                <p class="fw-semibold">
-                                    {{event.eventStartDate}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{event.eventStartTime}}
-                                </p>
-                                <p class="fw-semibold">
-                                    {{event.eventEndDate}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{event.eventEndTime}}
-                                </p>
+                        <div class="col-md-6">
+                            <div class="container mt-4">
+                                <div class="text-start">
+                                    <h2 class="mb-5">{{event.eventTitle}}</h2>
+                                    <p>
+                                        {{event.eventDescription}}
+                                    </p>
+                                </div>
+                                <span class="fs-3">Category :</span>
+                                <span class=" fs-3 fw-semibold"> {{event.category.categoryName}}</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-<section class="background-color py-5">
-    <div class="container text-center text-white py-5">
-        <h2 class="py-4">Get Your Tickets Now</h2>
-        <a class="btn btn-success text-white bi bi-ticket-fill fs-3" data-bs-toggle="modal"
-            data-bs-target="#exampleModal">&nbsp;&nbsp;<strong>Get
-                Tickets</strong></a>
-    </div>
-</section>
-
-<!-- Vertically centered modal -->
-<section>
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form action="">
-                        <div class="modal-body mx-3 my-2">
-                            <h4 class="text-center">{{event.eventTitle}}</h4>
-                            <div class="row d-flex">
-                                <div class="col-sm-6 mt-2">
-                                    <label for="quantity"><strong>Quantity</strong></label>
-                                    <select name="quantity" id="quantity" class="mt-2 form-select">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                    </select>
-                                    <small class="text-danger">Maximum 4 Tickets are available</small>
+    </section>
+    <section class="mt-5 py-5">
+        <div class="container d-flex justify-content-center">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card rounded-4 text-white my-2" style="width: 28rem;">
+                                <div class="card-body  rounded-4 background-color px-4">
+                                    <h1 class="bi bi-geo-alt-fill"></h1>
+                                    <h4 class="mb-3">Where</h4>
+                                    <p class="fw-semibold">{{event.eventVenue}}</p>
+                                    <p class="fw-semibold">{{event.city}}, {{event.state}}, {{event.country}}</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Close</button>
-                            <!-- <input type="submit" value="Checkout" class=" btn btn-success"> -->
-                            <a (click)="checkout()" class="bi bi-bookmark-check-fill btn btn-success"
-                                data-bs-dismiss="modal">&nbsp;&nbsp;Checkout</a>
+                        <div class="col-md-6">
+                            <div class="card rounded-4 text-white my-2 " style="width: 28rem;">
+                                <div class="card-body rounded-4 background-color px-4">
+                                    <h1 class="bi bi-stopwatch-fill"></h1>
+                                    <h4 class="mb-3">When</h4>
+                                    <p class="fw-semibold">
+                                        {{event.eventStartDate}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{event.eventStartTime}}
+                                    </p>
+                                    <p class="fw-semibold">
+                                        {{event.eventEndDate}}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;{{event.eventEndTime}}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- <div class="alert alert-warning alert-dismissible fade show" role="alert" id="message">
+    </section>
+
+    <section class="background-color mt-5 py-5">
+        <div class="container text-center text-white py-5">
+            <h2 class="py-4">Get Your Tickets Now</h2>
+            <a class="btn btn-light bi bi-ticket-fill fs-3" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                style="cursor:pointer;color:#117195;">&nbsp;&nbsp;<strong>Get
+                    Tickets</strong></a>
+        </div>
+    </section>
+
+    <!-- Vertically centered modal -->
+    <section>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="" [formGroup]="bookingForm">
+                            <div class="modal-body mx-3 my-2">
+                                <h4 class="text-center">{{event.eventTitle}}</h4>
+                                <div class="row d-flex">
+                                    <div class="col-sm-6 mt-2">
+                                        <label for="quantity"><strong>Quantity</strong></label>
+                                        <select formControlName="quantity" id="quantity" class="mt-2 form-select">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                        <small class="text-danger">Maximum 4 Tickets are available</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Close</button>
+                                <!-- <input type="submit" value="Checkout" class=" btn btn-success"> -->
+                                <a (click)="checkout()" class="bi bi-bookmark-check-fill btn btn-success"
+                                    data-bs-dismiss="modal">&nbsp;&nbsp;Checkout</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <div class="alert alert-warning alert-dismissible fade show" role="alert" id="message">
     <strong>Holy guacamole!</strong> You should check in on some of those fields below.
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div> -->
+</div>

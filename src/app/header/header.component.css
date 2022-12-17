@@ -1,5 +1,6 @@
 .dropdown-menu {
-    background-color: rgb(36, 36, 78);
+    /* background-color: rgb(36, 36, 78); */
+    background-color: #117195;
 }
 
 .dropdown-item {
@@ -7,5 +8,6 @@
 }
 
 .dropdown-item:hover {
-    background-color: rgb(47, 47, 111);
+    /* background-color: rgb(47, 47, 111); */
+    background-color: #0a6687;
 }

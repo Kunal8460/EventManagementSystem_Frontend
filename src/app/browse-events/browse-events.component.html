@@ -42,7 +42,7 @@
             <div class="col-xs-12">
                 <div class="row">
                     <div class="col-md-4" *ngFor="let e of eventList">
-                        <div class=" zoom fw-semibold card my-2" [routerLink]="['/show-event',e.event_id]"
+                        <div class="fw-semibold card my-2" [routerLink]="['/show-event',e.event_id]"
                             routerLinkActive="router-link-active" style="width: 23rem;height: max-content;">
                             <img src="../../assets/background.png" height="300" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -55,7 +55,7 @@
                                 </div>
                                 <p class="card-text">{{e.city}}, {{e.state}}, {{e.country}}</p>
                                 <a [routerLink]="['/show-event',e.eventId]" routerLinkActive="router-link-active"
-                                    class="btn-custom">Show Event</a>
+                                    class="btn-custom-outline">Show Event</a>
                             </div>
                         </div>
                     </div>

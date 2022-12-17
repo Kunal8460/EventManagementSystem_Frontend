@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Booking } from '../Booking';
+import { Events } from '../Events';
+import { UserServiceService } from '../user-service.service';
 
 @Component({
   selector: 'app-booking',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookingComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn: boolean = false
+  username: string = ''
+  bookings: Booking[] = []
+  constructor(
+    private router: Router,
+    private service: UserServiceService
+  ) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem("isLoggedIn") == "true") {
+      this.isLoggedIn = true
+      this.username = localStorage.getItem('user') || ''
+      this.service.getMyBookings(this.username).subscribe((data: any) => {
+        this.bookings = data
+      })
+    } else {
+      this.router.navigate([''])
+    }
   }
-
 }
+
