@@ -8,19 +8,33 @@
                         <div class="row my-2 d-flex justify-content-center">
                             <div class="col-sm-6">
                                 <label for="eventTitle"><strong>Event Title</strong></label>
-                                <input type="text" formControlName="eventTitle" #eventTitle id="eventTitle"
-                                    class="form-control">
+                                <input type="text" formControlName="eventTitle" #eventTitle id="eventTitle" required
+                                    class="form-control ng-required">
+                                <div *ngIf="createEventForm.controls['eventTitle'].errors != null && createEventForm.controls['eventTitle'].invalid && (createEventForm.controls['eventTitle'].dirty || createEventForm.controls['eventTitle'].touched)"
+                                    class="">
+                                    <div class="text-danger"
+                                        *ngIf="createEventForm.controls['eventTitle'].errors['required'] != null">
+                                        Event Title is a Mandatory Field.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row mb-2 d-flex justify-content-center">
                             <div class="col-sm-6">
                                 <label for="categoryId"><strong>Category</strong></label>
-                                <select class="form-select my-2" name="categoryId" formControlName="categoryId"
-                                    #categoryId id="categoryId">
-                                    <option value="">Select Category</option>
-                                    <option *ngFor="let cat of categories" value={{cat.categoryId}}>{{cat.categoryName}}
+                                <select (change)="onSelectCategory($event)" class="form-select my-2" name="categoryId"
+                                    required #categoryId id="categoryId">
+                                    <option value="" selected>Select Category</option>
+                                    <option *ngFor="let cat of categories" value={{cat.categoryId}}>
+                                        {{cat.categoryName}}
                                     </option>
                                 </select>
+                                <div *ngIf="(createEventForm.controls['categoryId'].touched || createEventForm.controls['dirty']) && createEventForm.controls['categoryId'].invalid"
+                                    class="text-danger">
+                                    <!-- <div class="text-danger" *ngIf="category != ''"> -->
+                                    Event Category is required.
+                                    <!-- </div> -->
+                                </div>
                             </div>
                         </div>
                         <div class="row my-2 d-flex justify-content-center">
@@ -38,6 +52,13 @@
                                         <input type="date" formControlName="eventStartDate" #eventStartDate
                                             id="eventStartDate" class="form-control">
                                     </div>
+                                    <!-- <div *ngIf="createEventForm.controls['eventStartDate'].errors != null && createEventForm.controls['eventStartDate'].invalid && (createEventForm.controls['eventStartDate'].dirty || createEventForm.controls['eventStartDate'].touched)"
+                                        class="">
+                                        <div class="text-danger"
+                                            *ngIf="createEventForm.controls['eventStartDate'].errors['required'] != null">
+                                            Event Title is a Mandatory Field.
+                                        </div>
+                                    </div> -->
                                     <div class="col-sm-3">
                                         <label for="eventStartTime"><strong>Event Start Time</strong></label>
                                         <input type="time" formControlName="eventStartTime" #eventStartTime
@@ -89,8 +110,8 @@
                         </div>
                         <div class="row p-2 d-flex text-center justify-content-center">
                             <div class="col-sm-12">
-                                <input type="submit" (click)="onSubmit()" class="fs-5 py-3 px-4 btn-custom"
-                                    value="Create">
+                                <input type="submit" [disabled]="createEventForm.pristine || createEventForm.invalid"
+                                    (click)="onSubmit()" class="fs-5 py-3 px-4 btn-custom" value="Create">
                             </div>
                         </div>
                     </form>

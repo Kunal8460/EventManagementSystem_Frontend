@@ -5,30 +5,36 @@
         <button class="zoom py-3 btn-custom" [routerLink]="['/create-event']"
             routerLinkActive="router-link-active">Create
             Event</button>
-        <button class="ms-3 zoom py-3 btn-custom" [routerLink]="['/my-events',username]"
-            routerLinkActive="router-link-active">My
+        <button class="ms-3 zoom py-3 btn-custom" [routerLink]="['/my-events']" routerLinkActive="router-link-active">My
             Events</button>
-        <form action="" class="mt-3 text-center">
+
+        <form method="post" [formGroup]="searchForm" class="mt-5 text-center">
             <div class="row">
                 <div class="col-md-4">
-                    <label for="Category"><strong>Category</strong></label>
-                    <select class="form-select my-2" name="Category" id="category">
+                    <label for="catId"><strong>Category</strong></label>
+                    <select (change)="selectCategory($event)" class="form-select my-2" formControlName="catId" #catId
+                        id="catId">
                         <option value="">Select Category</option>
                         <option *ngFor="let cat of categories" value={{cat.categoryId}}>{{cat.categoryName}}</option>
                     </select>
                 </div>
-                <div class="col-md-4">
+                <!-- <div class="col-md-4">
                     <label for="start-date"><strong>Start Date</strong></label>
                     <input class="form-control my-2" type="date" name="start-date" id="start-date">
                 </div>
                 <div class="col-md-4">
                     <label for="end-date"><strong>End Date</strong></label>
                     <input class="form-control my-2" type="date" name="end-date" id="end-date">
+                </div> -->
+            </div>
+            <div class="row mt-2 ">
+                <div class="col-md-2">
+                    <button (click)="search()"
+                        class="bi bi-search fs-5 zoom btn btn-success px-5 py-2">&nbsp;Search</button>
                 </div>
-                <div class="row mt-2">
-                    <div class="col-md-12">
-                        <button class="zoom btn btn-success px-5 py-2"><i class="bi bi-search"></i>&nbsp;Search</button>
-                    </div>
+                <div class="col-md-2">
+                    <button class="zoom bi bi-arrow-clockwise  py-3 px-5 btn-custom"
+                        (click)="refresh()">&nbsp;Refresh</button>
                 </div>
             </div>
         </form>

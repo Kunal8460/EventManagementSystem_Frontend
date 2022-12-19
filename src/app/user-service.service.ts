@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Events } from './Events';
 import { Booking } from './Booking';
+import { Search } from './Search';
 @Injectable({
   providedIn: 'root'
 })
@@ -61,6 +62,10 @@ export class UserServiceService {
 
   getMyBookings(email: string) {
     return this.http.get(`${this.url}/BookingMaster?email=${email}`)
+  }
+
+  searchEvents(searchObj: Search) {
+    return this.http.post(`${this.url}/EventMaster/Search`, searchObj)
   }
 
 }

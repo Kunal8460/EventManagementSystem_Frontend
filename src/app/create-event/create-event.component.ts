@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../user-service.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Events } from '../Events';
+import { EventCategory } from '../EventCategory';
 @Component({
   selector: 'app-create-event',
   templateUrl: './create-event.component.html',
@@ -12,6 +13,7 @@ import { Events } from '../Events';
 export class CreateEventComponent implements OnInit {
 
   categories: any[] = [];
+  category: string = ''
   createEventForm: FormGroup;
   event: Events = new Events()
   // categoryId: number = 0;
@@ -23,8 +25,8 @@ export class CreateEventComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.createEventForm = this.fb.group({
-      eventTitle: this.event.eventTitle,
-      categoryId: this.event.categoryId,
+      eventTitle: new FormControl(this.event.eventTitle, [Validators.required]),
+      categoryId: new FormControl(this.event.categoryId, [Validators.required]),
       eventDescription: this.event.eventDescription,
       eventStartDate: this.event.eventStartDate,
       eventStartTime: this.event.eventStartTime,
@@ -37,6 +39,7 @@ export class CreateEventComponent implements OnInit {
 
     })
   }
+
 
   ngOnInit(): void {
 
@@ -53,15 +56,23 @@ export class CreateEventComponent implements OnInit {
     })
   }
 
-  onSubmit() {
-    console.log(this.createEventForm.value)
-    this.createEventForm.value.categoryId = parseInt(this.createEventForm.value.categoryId)
-    this.event = this.createEventForm.value
-    this.event.customerEmail = localStorage.getItem("user") || '';
+  onSelectCategory(e: any) {
+    this.category = e.target.value
+    console.log(this.category);
 
-    this.service.createEvent(this.event).subscribe((data: any) => {
-      this.router.navigate(['browse-events'])
-    })
+  }
+  onSubmit() {
+    // console.log("Logged");
+
+    this.createEventForm.value.categoryId = parseInt(this.createEventForm.value.categoryId)
+    this.createEventForm.value.categoryId = parseInt(this.category)
+    this.event = this.createEventForm.value
+    // this.event.customerEmail = localStorage.getItem("user") || '';
+    console.log(this.event);
+
+    // this.service.createEvent(this.event).subscribe((data: any) => {
+    //   this.router.navigate(['browse-events'])
+    // })
   }
 
 }

@@ -2,6 +2,7 @@
 .background-color {
     /* background-color: rgb(36, 36, 78); */
     background-color: #117195;
+    /* background-image: linear-gradient(to bottom right, #117195, #6cd8ff); */
 }
 
 .zoom {
@@ -15,7 +16,7 @@
 }
 
 tr:hover {
-    background-color: lavender;
+    background-color: rgb(220, 245, 254);
 }
 
 .btn-custom {
