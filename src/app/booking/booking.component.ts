@@ -13,7 +13,7 @@ export class BookingComponent implements OnInit {
 
   isLoggedIn: boolean = false
   username: string = ''
-  bookings: Booking[] = []
+  bookings: any[] = []
   constructor(
     private router: Router,
     private service: UserServiceService
@@ -23,12 +23,13 @@ export class BookingComponent implements OnInit {
     if (localStorage.getItem("isLoggedIn") == "true") {
       this.isLoggedIn = true
       this.username = localStorage.getItem('user') || ''
-      this.service.getMyBookings(this.username).subscribe((data: any) => {
-        this.bookings = data
-      })
     } else {
       this.router.navigate([''])
     }
+    this.service.getMyBookings(this.username).subscribe((data: any) => {
+      this.bookings = data
+      console.log(this.bookings);
+    })
   }
 }
 

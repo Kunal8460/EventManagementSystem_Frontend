@@ -8,5 +8,5 @@ export class Booking {
     customerEmail: string = '';
     // bookedOn: string = '';
     status: string = ''
-    event: Events = new Events()
+    // event: Events = new Events()
 }

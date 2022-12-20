@@ -20,7 +20,6 @@ export class BrowseEventsComponent implements OnInit {
 
   constructor(private service: UserServiceService,
     private router: Router,
-    private route: ActivatedRoute,
     private fb: FormBuilder
   ) {
     this.searchForm = this.fb.group({
@@ -54,10 +53,12 @@ export class BrowseEventsComponent implements OnInit {
     this.searchForm.value.catId = parseInt(e.target.value)
   }
   search() {
+
     this.service.searchEvents(this.searchForm.value).subscribe((data: any) => {
       this.eventList = data
       this.eventList
     })
+
   }
   refresh() {
     this.service.getAllEvents().subscribe((data: any) => {

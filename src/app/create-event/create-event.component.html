@@ -110,8 +110,9 @@
                         </div>
                         <div class="row p-2 d-flex text-center justify-content-center">
                             <div class="col-sm-12">
-                                <input type="submit" [disabled]="createEventForm.pristine || createEventForm.invalid"
-                                    (click)="onSubmit()" class="fs-5 py-3 px-4 btn-custom" value="Create">
+                                <input type="submit" style="cursor: pointer;"
+                                    [disabled]="createEventForm.pristine || createEventForm.invalid"
+                                    (click)="onSubmit()" class="py-3 px-5 btn-custom" value="Create">
                             </div>
                         </div>
                     </form>

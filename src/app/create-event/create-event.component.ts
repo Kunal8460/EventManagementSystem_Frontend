@@ -67,12 +67,12 @@ export class CreateEventComponent implements OnInit {
     this.createEventForm.value.categoryId = parseInt(this.createEventForm.value.categoryId)
     this.createEventForm.value.categoryId = parseInt(this.category)
     this.event = this.createEventForm.value
-    // this.event.customerEmail = localStorage.getItem("user") || '';
+    this.event.customerEmail = localStorage.getItem("user") || '';
     console.log(this.event);
 
-    // this.service.createEvent(this.event).subscribe((data: any) => {
-    //   this.router.navigate(['browse-events'])
-    // })
+    this.service.createEvent(this.event).subscribe((data: any) => {
+      this.router.navigate(['browse-events'])
+    })
   }
 
 }

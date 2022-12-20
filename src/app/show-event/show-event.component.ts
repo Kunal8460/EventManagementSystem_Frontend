@@ -49,17 +49,14 @@ export class ShowEventComponent implements OnInit {
       this.router.navigate([''])
     }
 
-    this.activeRoute.params.subscribe((param) => {
-      let id = param['id']
-      this.service.getEvent(id).subscribe((data: any) => {
-        this.isData = true
-        this.event = data.data
-        console.log(this.event)
-      })
-    })
-  }
-  getEventId() {
-
+    // this.activeRoute.params.subscribe((param) => {
+    //   let id = param['id']
+    //   this.service.getEvent(id).subscribe((data: any) => {
+    //     this.isData = true
+    //     this.event = data.data
+    //     console.log(this.event)
+    //   })
+    // })
   }
 
   checkout() {
@@ -67,9 +64,10 @@ export class ShowEventComponent implements OnInit {
     this.booking.customerEmail = this.username
     this.booking.status = "pending"
     this.booking.quantity = this.bookingForm.value.quantity
-    // console.log(this.booking)
+    // this.booking.event = this.event
+    console.log("Booking Data", this.booking)
     this.service.requestTicket(this.booking).subscribe((data: any) => {
-      console.log(data);
+      // console.log(data);
       this.router.navigate(['booking'])
     })
     // console.log(this.event.eventId)
