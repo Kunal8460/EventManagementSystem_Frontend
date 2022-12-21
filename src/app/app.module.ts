@@ -17,6 +17,10 @@ import { CreateEventComponent } from './create-event/create-event.component';
 import { MyEventsComponent } from './my-events/my-events.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
+import { AdminHeaderComponent } from './Admin/admin-header/admin-header.component';
+import { AdminBrowseEventsComponent } from './Admin/admin-browse-events/admin-browse-events.component';
+import { AdminEditEventComponent } from './Admin/admin-edit-event/admin-edit-event.component';
+import { AdminCategoryComponent } from './Admin/admin-category/admin-category.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { EditEventComponent } from './edit-event/edit-event.component';
     CreateEventComponent,
     MyEventsComponent,
     NotFoundComponent,
-    EditEventComponent
+    EditEventComponent,
+    AdminHeaderComponent,
+    AdminBrowseEventsComponent,
+    AdminEditEventComponent,
+    AdminCategoryComponent
   ],
   imports: [
     BrowserModule,

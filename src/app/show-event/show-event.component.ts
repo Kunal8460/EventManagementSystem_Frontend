@@ -19,17 +19,11 @@ export class ShowEventComponent implements OnInit {
   username: string = ''
   isLoggedIn: boolean = false
   booking: Booking = new Booking()
-  bookingForm: FormGroup
 
   constructor(private activeRoute: ActivatedRoute,
     private service: UserServiceService,
     private router: Router,
-    private fb: FormBuilder
-  ) {
-    this.bookingForm = this.fb.group({
-      quantity: this.booking.quantity
-    })
-  }
+  ) { }
 
   ngOnInit(): void {
 
@@ -58,20 +52,20 @@ export class ShowEventComponent implements OnInit {
     //   })
     // })
   }
-
-  checkout() {
+  getQuantity(e: any) {
+    this.booking.quantity = parseInt(e.target.value)
+  }
+  getPaymentDetails() {
     this.booking.eventId = this.event.eventId
     this.booking.customerEmail = this.username
     this.booking.status = "pending"
-    this.booking.quantity = this.bookingForm.value.quantity
-    // this.booking.event = this.event
-    console.log("Booking Data", this.booking)
+  }
+  checkout() {
     this.service.requestTicket(this.booking).subscribe((data: any) => {
       // console.log(data);
       this.router.navigate(['booking'])
     })
-    // console.log(this.event.eventId)
-    // alert("You will get your tickets via mail as soon as your request is approved! ")
+    console.log(this.booking)
   }
 
 }

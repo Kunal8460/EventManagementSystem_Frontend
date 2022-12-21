@@ -1,0 +1,107 @@
+<div class="container-fluid bg-secondary bg-opacity-25">
+    <div class="py-5 container">
+        <h2 class="text-center">Edit Event</h2>
+        <div class="container p-5">
+            <div class="row">
+                <div class="col-xs-12">
+                    <form method="post" [formGroup]="editEventForm">
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-sm-6">
+                                <label for="eventTitle"><strong>Event Title</strong></label>
+                                <input type="text" formControlName="eventTitle" #eventTitle
+                                    [(ngModel)]="event.eventTitle" id="eventTitle" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-2 d-flex justify-content-center">
+                            <div class="col-sm-6">
+                                <label for="categoryId"><strong>Category</strong></label>
+                                <select class="form-select my-2" [(ngModel)]="event.categoryId" name="categoryId"
+                                    formControlName="categoryId" #categoryId id="categoryId">
+                                    <option value="">Select Category</option>
+                                    <option *ngFor="let cat of categories" value={{cat.categoryId}}>{{cat.categoryName}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row my-2 d-flex justify-content-center">
+                            <div class="col-sm-6">
+                                <label for="eventDescription"><strong>Event Description</strong></label>
+                                <textarea formControlName="eventDescription" [(ngModel)]="event.eventDescription"
+                                    #eventDescription id="eventDescription" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="row my-2 ">
+                            <div class="col-sm-12">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-sm-3">
+                                        <label for="eventStartDate"><strong>Event Start Date</strong></label>
+                                        <input type="date" formControlName="eventStartDate" #eventStartDate
+                                            id="eventStartDate" [(ngModel)]="event.eventStartDate" class="form-control">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="eventStartTime"><strong>Event Start Time</strong></label>
+                                        <input type="time" formControlName="eventStartTime" #eventStartTime
+                                            id="eventStartTime" [(ngModel)]="event.eventStartTime" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-2 ">
+                            <div class="col-sm-12">
+                                <div class="row d-flex justify-content-center">
+                                    <div class="col-sm-3">
+                                        <label for="eventEndDate"><strong>Event End Date</strong></label>
+                                        <input type="date" formControlName="eventEndDate" #eventEndDate
+                                            id="eventEndDate" [(ngModel)]="event.eventEndDate" class="form-control">
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label for="eventEndTime"><strong>Event End Time</strong></label>
+                                        <input type="time" formControlName="eventEndTime" #eventEndTime
+                                            id="eventEndTime" [(ngModel)]="event.eventEndTime" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-2 d-flex justify-content-center">
+                            <div class="col-sm-6">
+                                <label for="eventVenue"><strong>Venue Address</strong></label>
+                                <textarea formControlName="eventVenue" [(ngModel)]="event.eventVenue" #eventVenue
+                                    id="eventVenue" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="row mb-2 d-flex justify-content-center">
+                            <div class="col-sm-6">
+                                <label for="city"><strong>City</strong></label>
+                                <input type="text" formControlName="city" [(ngModel)]="event.city" #city id="city"
+                                    class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row mb-2 d-flex justify-content-center">
+                            <div class="col-sm-6">
+                                <label for="state"><strong>State</strong></label>
+                                <input type="text" formControlName="state" [(ngModel)]="event.state" #state id="state"
+                                    class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row mb-2 d-flex justify-content-center">
+                            <div class="col-sm-6">
+                                <label for="country"><strong>Country</strong></label>
+                                <input type="text" formControlName="country" [(ngModel)]="event.country" #state
+                                    id="country" class="form-control" />
+                            </div>
+                        </div>
+                        <input type="hidden" formControlName="eventId" [(ngModel)]="event.eventId"
+                            value="event.eventId">
+                        <input type="hidden" formControlName="customerEmail" [(ngModel)]="event.customerEmail"
+                            value="event.customerEmail">
+                        <div class="row p-2 d-flex text-center justify-content-center">
+                            <div class="col-sm-12">
+                                <input type="submit" (click)="onUpdate()" class="fs-5 px-5 btn-custom" value="Edit">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

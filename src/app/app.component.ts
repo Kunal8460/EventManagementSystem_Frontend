@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,12 +9,16 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'front-end'
   isLoggedIn: boolean = false
-
+  isAdmin: boolean = false
+  // @Input() isAdmin: boolean = false
   constructor(private router: Router) { }
   ngOnInit(): void {
 
     if (localStorage.getItem("isLoggedIn") == "true") {
       this.isLoggedIn = true
+      if (localStorage.getItem('user') === "admin@admin.com") {
+        this.isAdmin = true
+      }
       console.log(localStorage.getItem("isLoggedIn"))
     } else {
       this.router.navigate([''])

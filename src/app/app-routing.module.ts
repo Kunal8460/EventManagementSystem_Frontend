@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminBrowseEventsComponent } from './Admin/admin-browse-events/admin-browse-events.component';
+import { AdminCategoryComponent } from './Admin/admin-category/admin-category.component';
+import { AdminEditEventComponent } from './Admin/admin-edit-event/admin-edit-event.component';
+import { AdminHeaderComponent } from './Admin/admin-header/admin-header.component';
 import { AppComponent } from './app.component';
 import { BookingComponent } from './booking/booking.component';
 import { BrowseEventsComponent } from './browse-events/browse-events.component';
@@ -21,6 +25,10 @@ const routes: Routes = [
   { path: 'my-events', component: MyEventsComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: 'edit-event/:id', component: EditEventComponent },
+  { path: 'admin-browse-events', component: AdminBrowseEventsComponent },
+  { path: 'admin-header', component: AdminHeaderComponent },
+  { path: 'admin-edit-event/:id', component: AdminEditEventComponent },
+  { path: 'admin-category', component: AdminCategoryComponent },
   { path: '**', pathMatch: 'full', component: NotFoundComponent },
 ];
 

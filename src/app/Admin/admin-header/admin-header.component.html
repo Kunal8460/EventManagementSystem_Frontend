@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg fs-5 navbar-dark background-color py-3 shadow">
+    <div class="container">
+        <a class="navbar-brand fs-4 fw-semibold" href="#">Event Mime </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div *ngIf="isLoggedIn" class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+
+                <li class="nav-item dropdown background-color">
+                    <a class="nav-link active  dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Manage Event
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item active" [routerLink]="['/admin-browse-events']"
+                                routerLinkActive="router-link-active">Events</a></li>
+                        <li><a class="dropdown-item active" [routerLink]="['/admin-category']">Categories</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Manage Bookings
+                    </a>
+                    <ul class="dropdown-menu background-color" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item " href="#">Events</a></li>
+                        <li><a class="dropdown-item " href="#">Categories</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle " href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Manage Users
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Users</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link active" aria-current="page" [routerLink]="['/admin-dashboard']">Reports</a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav d-block ms-auto">
+                <li class="nav-item  dropdown">
+                    <a class=" fs-5 nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        admin@admin.com
+                    </a>
+                    <ul class="dropdown-menu" style="cursor: pointer;">
+                        <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
