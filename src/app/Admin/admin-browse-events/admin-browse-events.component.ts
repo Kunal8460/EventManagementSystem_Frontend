@@ -40,8 +40,7 @@ export class AdminBrowseEventsComponent implements OnInit {
   deleteEvent() {
     this.service.deleteEvent(this.delEvent.eventId).subscribe((data: any) => {
       console.log(data);
-
-      // location.reload()
+      location.reload()
     })
   }
 

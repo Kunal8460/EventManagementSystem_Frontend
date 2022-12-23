@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   disableBtn: boolean = false;
   isVerified: boolean = false
-
+  isAdmin: boolean = false
   constructor(private ss: UserServiceService,
     private route: ActivatedRoute, private router: Router,
     private fb: FormBuilder) {
@@ -32,6 +32,9 @@ export class LoginComponent implements OnInit {
 
     if (localStorage.getItem("isLoggedIn") == "true") {
       this.isLoggedIn = true
+      if (localStorage.getItem('user') === "cubeqnaforum@gmail.com") {
+        this.isAdmin = true
+      }
       console.log(localStorage.getItem("isLoggedIn"))
       this.router.navigate(['dashboard'])
     } else {

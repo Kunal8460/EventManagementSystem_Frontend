@@ -21,6 +21,9 @@ import { AdminHeaderComponent } from './Admin/admin-header/admin-header.componen
 import { AdminBrowseEventsComponent } from './Admin/admin-browse-events/admin-browse-events.component';
 import { AdminEditEventComponent } from './Admin/admin-edit-event/admin-edit-event.component';
 import { AdminCategoryComponent } from './Admin/admin-category/admin-category.component';
+import { AdminEditCategoryComponent } from './Admin/admin-edit-category/admin-edit-category.component';
+import { AdminReportsComponent } from './Admin/admin-reports/admin-reports.component';
+import { AdminCreateCategoryComponent } from './Admin/admin-create-category/admin-create-category.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { AdminCategoryComponent } from './Admin/admin-category/admin-category.co
     AdminHeaderComponent,
     AdminBrowseEventsComponent,
     AdminEditEventComponent,
-    AdminCategoryComponent
+    AdminCategoryComponent,
+    AdminEditCategoryComponent,
+    AdminReportsComponent,
+    AdminCreateCategoryComponent
   ],
   imports: [
     BrowserModule,

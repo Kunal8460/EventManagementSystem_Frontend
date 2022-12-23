@@ -16,7 +16,7 @@ export class AppComponent {
 
     if (localStorage.getItem("isLoggedIn") == "true") {
       this.isLoggedIn = true
-      if (localStorage.getItem('user') === "admin@admin.com") {
+      if (localStorage.getItem('user') === "cubeqnaforum@gmail.com") {
         this.isAdmin = true
       }
       console.log(localStorage.getItem("isLoggedIn"))

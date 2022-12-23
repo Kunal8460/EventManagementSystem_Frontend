@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit, DoCheck, OnDestroy {
 
   username: string = ''
   isLoggedIn: boolean = false
+  isAdmin: boolean = false
   constructor(
     private router: Router
   ) { }
@@ -17,11 +18,13 @@ export class HeaderComponent implements OnInit, DoCheck, OnDestroy {
   ngDoCheck() {
     if (localStorage.getItem('isLoggedIn') === 'true') {
       this.isLoggedIn = true
+      if (localStorage.getItem('user') === "cubeqnaforum@gmail.com") {
+        this.isAdmin = true
+      }
       this.username = localStorage.getItem('user') || ''
     }
   }
   ngOnInit(): void {
-
   }
   ngOnDestroy() {
     this.logout()

@@ -15,7 +15,7 @@ export class AdminHeaderComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    if (localStorage.getItem("isLoggedIn") == "true" && localStorage.getItem('user') === "admin@admin.com") {
+    if (localStorage.getItem("isLoggedIn") == "true" && localStorage.getItem('user') === "cubeqnaforum@gmail.com") {
       this.isLoggedIn = true
       this.isAdmin = true
       console.log(localStorage.getItem("isLoggedIn"))
@@ -28,7 +28,6 @@ export class AdminHeaderComponent implements OnInit, OnDestroy {
     this.logout()
   }
   logout() {
-    console.log("lkjbjbmj")
     localStorage.clear();
     this.isAdmin = false
     this.isLoggedIn = false
