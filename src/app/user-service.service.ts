@@ -64,6 +64,9 @@ export class UserServiceService {
   getMyBookings(email: string) {
     return this.http.get(`${this.url}/BookingMaster?email=${email}`)
   }
+  getAllBookings() {
+    return this.http.get(`${this.url}/BookingMaster/getAllbooking`)
+  }
 
   searchEvents(searchObj: Search) {
     return this.http.post(`${this.url}/EventMaster/Search`, searchObj)
@@ -83,4 +86,20 @@ export class UserServiceService {
   deleteCategory(id: any) {
     return this.http.delete(`${this.url}/EventCategory/${id}`)
   }
+  eventCount() {
+    return this.http.get(`${this.url}/EventMaster/eventCount`)
+  }
+  categoryCount() {
+    return this.http.get(`${this.url}/EventCategory/categoryCount`)
+  }
+  bookingCount() {
+    return this.http.get(`${this.url}/BookingMaster/bookingCount`)
+  }
+  approveBooking(id: any, booking: any) {
+    return this.http.put(`${this.url}/BookingMaster/${id}`, booking)
+  }
+  getBooking(id: any) {
+    return this.http.get(`${this.url}/BookingMaster/GetById/${id}`)
+  }
+
 }

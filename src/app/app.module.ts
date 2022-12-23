@@ -24,6 +24,7 @@ import { AdminCategoryComponent } from './Admin/admin-category/admin-category.co
 import { AdminEditCategoryComponent } from './Admin/admin-edit-category/admin-edit-category.component';
 import { AdminReportsComponent } from './Admin/admin-reports/admin-reports.component';
 import { AdminCreateCategoryComponent } from './Admin/admin-create-category/admin-create-category.component';
+import { AdminBookingComponent } from './Admin/admin-booking/admin-booking.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AdminCreateCategoryComponent } from './Admin/admin-create-category/admi
     AdminCategoryComponent,
     AdminEditCategoryComponent,
     AdminReportsComponent,
-    AdminCreateCategoryComponent
+    AdminCreateCategoryComponent,
+    AdminBookingComponent
   ],
   imports: [
     BrowserModule,

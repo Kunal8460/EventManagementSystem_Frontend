@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminBookingComponent } from './Admin/admin-booking/admin-booking.component';
 import { AdminBrowseEventsComponent } from './Admin/admin-browse-events/admin-browse-events.component';
 import { AdminCategoryComponent } from './Admin/admin-category/admin-category.component';
 import { AdminCreateCategoryComponent } from './Admin/admin-create-category/admin-create-category.component';
 import { AdminEditCategoryComponent } from './Admin/admin-edit-category/admin-edit-category.component';
 import { AdminEditEventComponent } from './Admin/admin-edit-event/admin-edit-event.component';
 import { AdminHeaderComponent } from './Admin/admin-header/admin-header.component';
+import { AdminReportsComponent } from './Admin/admin-reports/admin-reports.component';
 import { AppComponent } from './app.component';
 import { BookingComponent } from './booking/booking.component';
 import { BrowseEventsComponent } from './browse-events/browse-events.component';
@@ -33,6 +35,8 @@ const routes: Routes = [
   { path: 'admin-category', component: AdminCategoryComponent },
   { path: 'admin-edit-category/:id', component: AdminEditCategoryComponent },
   { path: 'admin-create-category', component: AdminCreateCategoryComponent },
+  { path: 'admin-reports', component: AdminReportsComponent },
+  { path: 'admin-bookings', component: AdminBookingComponent },
   { path: '**', pathMatch: 'full', component: NotFoundComponent },
 ];
 

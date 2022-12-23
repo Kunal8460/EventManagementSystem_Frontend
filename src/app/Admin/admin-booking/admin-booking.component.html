@@ -1,0 +1,63 @@
+<div class="container-fluid py-5 bg-secondary bg-opacity-10">
+    <div class="container py-5">
+        <h2 class="mb-3">Bookings</h2>
+        <!-- <div class="mb-3">
+            <button class="zoom py-3 btn-custom" [routerLink]="['/create-event']"
+                routerLinkActive="router-link-active">Create
+                Event</button>
+            <button class="ms-3 zoom py-3 btn-custom" [routerLink]="['/my-events']"
+                routerLinkActive="router-link-active">My
+                Events</button>
+        </div> -->
+        <table class="table table-stripped fs-5">
+            <thead>
+                <tr>
+                    <th scope="col">Event Name</th>
+                    <th scope="col">Event Venue</th>
+                    <th scope="col">Event Location</th>
+                    <th scope="col">Event Start Date</th>
+                    <th scope="col">Event Start Time</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                    <!-- <th scope="col">Delete</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let b of bookings">
+                    <td scope="col">{{b.event.eventTitle}}</td>
+                    <td scope="col">{{b.event.eventVenue}}</td>
+                    <td scope="col">{{b.event.city}}, {{b.event.state}}, {{b.event.country}}</td>
+                    <td scope="col">{{b.event.eventStartDate}}</td>
+                    <td scope="col">{{b.event.eventStartTime}}</td>
+                    <td scope="col">{{b.quantity}}</td>
+                    <td scope="col">{{b.status}}</td>
+
+
+                    <!-- <td>{{e.eventDescription}}</td> -->
+                    <td class="zoom"><a *ngIf="b.status=='pending'" class="btn btn-success"
+                            data-bs-target="#exampleModal" (click)="approve(b.bookingId)" data-bs-toggle="modal"><i
+                                class="bi bi-check-lg"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<section>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body mx-3 my-2">
+                    <h1 class="text-center bi bi-exclamation-triangle-fill"></h1>
+                    <p class="fw-semibold fs-4">Are your sure you want to Approve Request</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Cancel</button>
+                    <a class="bi bi-check-lg btn btn-success" (click)="onapprove()"
+                        data-bs-dismiss="modal">&nbsp;&nbsp;Approve</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
