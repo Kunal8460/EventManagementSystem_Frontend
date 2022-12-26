@@ -30,9 +30,14 @@ export class AdminBookingComponent implements OnInit {
   onapprove() {
     console.log(this.approveBooking);
 
-    this.service.approveBooking(this.approveBooking.bookingId, this.approveBooking).subscribe((data: any) => {
-      console.log(data);
+    // this.service.approveBooking(this.approveBooking.bookingId, this.approveBooking).subscribe((data: any) => {
+    this.service.getPass(this.approveBooking).subscribe(() => {
+      this.service.approveBooking(this.approveBooking.bookingId, this.approveBooking).subscribe((data: any) => {
+        location.reload()
+      })
     })
+    // console.log(data);
+    // })
   }
 
 }

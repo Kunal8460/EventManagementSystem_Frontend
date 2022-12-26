@@ -14,6 +14,7 @@ export class UserServiceService {
   constructor(private http: HttpClient) { }
   loginCreds = {};
   data = {};
+  EntryPass = {}
 
   getCategories() {
     return this.http.get(`${this.url}/EventCategory`)
@@ -21,7 +22,7 @@ export class UserServiceService {
   sendOtp(email: string) {
     this.loginCreds = {
       toEmail: email,
-      subject: "OTP",
+      subject: "OTP - Eventive",
       body: ""
     }
     return this.http.post(`${this.url}/Email/Send`, this.loginCreds)
@@ -101,5 +102,15 @@ export class UserServiceService {
   getBooking(id: any) {
     return this.http.get(`${this.url}/BookingMaster/GetById/${id}`)
   }
+  getPass(bookingData: any) {
+    console.log("Booking data" + bookingData);
 
+    this.EntryPass = {
+      "ToEmail": bookingData.customerEmail,
+      "Subject": "Entry Pass",
+      "body": "",
+      "EventName": bookingData.event.eventTitle
+    }
+    return this.http.post(`${this.url}/Email/GetPass`, this.EntryPass);
+  }
 }
